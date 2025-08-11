@@ -1,11 +1,11 @@
 backend:
   name: git-gateway
-  branch: main        # যদি আপনার ব্রাঞ্চ অন্যকিছু হয়ে থাকে (master) সেটা পরিবর্তন করবেন
+  branch: main
 
-media_folder: "assets/images/uploads"   # repo-তে ছবি থাকবে
-public_folder: "/assets/images/uploads" # ওয়েব থেকে দেখা পাবলিক path
+media_folder: "assets/images/uploads"
+public_folder: "/assets/images/uploads"
 
-site_url: "https://lucent-chebakia-c415fc.netlify.app" # আপনার Netlify সাইটের URL
+site_url: "https://lucent-chebakia-c415fc.netlify.app"
 
 collections:
   - name: "pages"
@@ -15,15 +15,15 @@ collections:
         name: "home"
         file: "content/pages/home.md"
         fields:
-          - {label: "Title", name: "title", widget: "string"}
-          - {label: "Hero Text", name: "hero", widget: "text"}
-          - {label: "Body", name: "body", widget: "markdown"}
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Hero Text", name: "hero", widget: "text" }
+          - { label: "Body", name: "body", widget: "markdown" }
       - label: "About"
         name: "about"
         file: "content/pages/about.md"
         fields:
-          - {label: "Title", name: "title", widget: "string"}
-          - {label: "Body", name: "body", widget: "markdown"}
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Body", name: "body", widget: "markdown" }
 
   - name: "posts"
     label: "News / Posts"
@@ -31,10 +31,40 @@ collections:
     create: true
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     fields:
-      - {label: "Title", name: "title", widget: "string"}
-      - {label: "Date", name: "date", widget: "datetime"}
-      - {label: "Summary", name: "summary", widget: "text"}
-      - {label: "Featured Image", name: "image", widget: "image"}
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Date", name: "date", widget: "datetime" }
+      - { label: "Summary", name: "summary", widget: "text" }
+      - { label: "Featured Image", name: "image", widget: "image" }
+      - { label: "Body", name: "body", widget: "markdown" }
+
+  - name: "services"
+    label: "Services"
+    folder: "content/services"
+    create: true
+    fields:
+      - { label: "Service Title", name: "title", widget: "string" }
+      - { label: "Category", name: "category", widget: "string" }
+      - { label: "Image", name: "image", widget: "image" }
+      - { label: "Description", name: "description", widget: "markdown" }
+
+  - name: "gallery"
+    label: "Photo Gallery"
+    folder: "content/gallery"
+    create: true
+    fields:
+      - { label: "Image", name: "image", widget: "image" }
+      - { label: "Caption", name: "caption", widget: "string" }
+
+  - name: "messages"
+    label: "Public Messages (manual)"
+    folder: "content/messages"
+    create: true
+    fields:
+      - { label: "Name", name: "name", widget: "string" }
+      - { label: "Email", name: "email", widget: "string" }
+      - { label: "Subject", name: "subject", widget: "string" }
+      - { label: "Message", name: "message", widget: "text" }
+      - { label: "Date", name: "date", widget: "datetime" }      - {label: "Featured Image", name: "image", widget: "image"}
       - {label: "Body", name: "body", widget: "markdown"}
 
   - name: "services"
