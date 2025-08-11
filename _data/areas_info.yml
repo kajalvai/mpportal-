@@ -1,0 +1,13 @@
+total_population: "২.৫ লক্ষ"
+total_area: "২৫০ বর্গকিমি"
+total_unions: "৫টি"
+main_crops: "ধান, গম, আখ"
+
+unions:
+  - name: "বদলগাছী"
+    population: "৫০,০০০"
+    problems:
+      - problem: "পানি সংকট"
+    projects:
+      - project: "সেচ প্রকল্প"
+    representative: "মোঃ করিম"
