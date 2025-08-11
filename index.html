@@ -1014,6 +1014,17 @@
                 </form>
             </div>
         </div>
+        <script>
+  if (window.netlifyIdentity) {
+    window.netlifyIdentity.on("init", user => {
+      if (!user) {
+        window.netlifyIdentity.on("login", () => {
+          document.location.href = "/admin/";
+        });
+      }
+    });
+  }
+        </script>
     </section>
 
     <!-- Footer -->
@@ -1045,6 +1056,7 @@
                             <i class="fab fa-instagram"></i>
 
 </html>
+
 
 
 
