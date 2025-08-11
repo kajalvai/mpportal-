@@ -1,0 +1,16 @@
+hospitals:
+  - name: "নওগাঁ সদর হাসপাতাল"
+    address: "নওগাঁ শহর"
+    phone: "০১৭xxxxxxxx"
+    type: "সরকারি"
+
+police:
+  - name: "নওগাঁ সদর থানা"
+    address: "নওগাঁ শহর"
+    phone: "০১৭xxxxxxxx"
+    area: "নওগাঁ সদর"
+
+fire_service:
+  - location: "নওগাঁ"
+    phone: "০১৭xxxxxxxx"
+    address: "ফায়ার সার্ভিস রোড"
