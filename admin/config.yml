@@ -1,1 +1,203 @@
+backend:
+  name: git-gateway
+  branch: main # Branch to update (optional; defaults to master)
 
+# These lines should *not* be indented
+media_folder: "assets/images" # Media files will be stored in the repo under static/images/uploads
+public_folder: "/assets/images" # The src attribute for uploaded media will begin with /images/uploads
+
+collections:
+  - name: "profile"
+    label: "Profile Information"
+    files:
+      - label: "Personal Info"
+        name: "personal"
+        file: "_data/profile.yml"
+        fields:
+          - {label: "Name", name: "name", widget: "string", default: "à¦à§à¦¯à¦¾à¦¡à¦­à§‹à¦•à§‡à¦Ÿ à¦†.à¦¸.à¦® à¦¸à¦¾à¦¯à¦¼à§‡à¦®"}
+          - {label: "Title", name: "title", widget: "string", default: "à¦¨à¦“à¦—à¦¾à¦ à¦¸à¦¦à¦°-à§« à¦¨à¦‚ à¦†à¦¸à¦¨à§‡à¦° à¦¸à¦®à§à¦­à¦¾à¦¬à§à¦¯ à¦ªà§à¦°à¦¾à¦°à§à¦¥à§€"}
+          - {label: "Profile Photo", name: "photo", widget: "image", required: false}
+          - {label: "About Me", name: "about", widget: "text"}
+          - {label: "Vision", name: "vision", widget: "text"}
+          - {label: "Phone", name: "phone", widget: "string", required: false}
+          - {label: "Email", name: "email", widget: "string", required: false}
+          - {label: "Facebook", name: "facebook", widget: "string", required: false}
+
+  - name: "promises"
+    label: "Promises & Commitments"
+    files:
+      - label: "All Promises"
+        name: "commitments"
+        file: "_data/promises.yml"
+        fields:
+          - label: "Promises"
+            name: "promises"
+            widget: "list"
+            fields:
+              - {label: "Category", name: "category", widget: "select", options: ["à¦¶à¦¿à¦•à§à¦·à¦¾", "à¦¸à§à¦¬à¦¾à¦¸à§à¦¥à§à¦¯", "à¦•à¦°à§à¦®à¦¸à¦‚à¦¸à§à¦¥à¦¾à¦¨", "à¦…à¦¬à¦•à¦¾à¦ à¦¾à¦®à§‹", "à¦…à¦¨à§à¦¯à¦¾à¦¨à§à¦¯"]}
+              - {label: "Title", name: "title", widget: "string"}
+              - {label: "Description", name: "description", widget: "text"}
+              - {label: "Status", name: "status", widget: "select", options: ["à¦ªà¦°à¦¿à¦•à¦²à§à¦ªà¦¨à¦¾à¦§à§€à¦¨", "à¦¬à¦¾à¦¸à§à¦¤à¦¬à¦¾à¦¯à¦¼à¦¨à¦¾à¦§à§€à¦¨", "à¦¸à¦®à§à¦ªà¦¨à§à¦¨"], default: "à¦ªà¦°à¦¿à¦•à¦²à§à¦ªà¦¨à¦¾à¦§à§€à¦¨"}
+              - {label: "Priority", name: "priority", widget: "select", options: ["à¦‰à¦šà§à¦š", "à¦®à¦¾à¦§à§à¦¯à¦®", "à¦¨à¦¿à¦®à§à¦¨"], default: "à¦®à¦¾à¦§à§à¦¯à¦®"}
+
+  - name: "services"
+    label: "Services & Information"
+    files:
+      - label: "Emergency Services"
+        name: "emergency"
+        file: "_data/emergency_services.yml"
+        fields:
+          - label: "Hospitals"
+            name: "hospitals"
+            widget: "list"
+            fields:
+              - {label: "Name", name: "name", widget: "string"}
+              - {label: "Address", name: "address", widget: "string"}
+              - {label: "Phone", name: "phone", widget: "string"}
+              - {label: "Type", name: "type", widget: "select", options: ["à¦¸à¦°à¦•à¦¾à¦°à¦¿", "à¦¬à§‡à¦¸à¦°à¦•à¦¾à¦°à¦¿", "à¦•à§à¦²à¦¿à¦¨à¦¿à¦•"]}
+          
+          - label: "Police Stations"
+            name: "police"
+            widget: "list"
+            fields:
+              - {label: "Name", name: "name", widget: "string"}
+              - {label: "Address", name: "address", widget: "string"}
+              - {label: "Phone", name: "phone", widget: "string"}
+              - {label: "Area", name: "area", widget: "string"}
+          
+          - label: "Fire Service"
+            name: "fire_service"
+            widget: "list"
+            fields:
+              - {label: "Location", name: "location", widget: "string"}
+              - {label: "Phone", name: "phone", widget: "string"}
+              - {label: "Address", name: "address", widget: "string"}
+
+      - label: "Educational Services"
+        name: "education"
+        file: "_data/education_services.yml"
+        fields:
+          - label: "Schools & Colleges"
+            name: "institutions"
+            widget: "list"
+            fields:
+              - {label: "Name", name: "name", widget: "string"}
+              - {label: "Type", name: "type", widget: "select", options: ["à¦ªà§à¦°à¦¾à¦¥à¦®à¦¿à¦• à¦¬à¦¿à¦¦à§à¦¯à¦¾à¦²à¦¯à¦¼", "à¦®à¦¾à¦§à§à¦¯à¦®à¦¿à¦• à¦¬à¦¿à¦¦à§à¦¯à¦¾à¦²à¦¯à¦¼", "à¦•à¦²à§‡à¦œ", "à¦®à¦¾à¦¦à§à¦°à¦¾à¦¸à¦¾"]}
+              - {label: "Address", name: "address", widget: "string"}
+              - {label: "Contact", name: "contact", widget: "string", required: false}
+          
+          - label: "Scholarships"
+            name: "scholarships"
+            widget: "list"
+            fields:
+              - {label: "Title", name: "title", widget: "string"}
+              - {label: "Description", name: "description", widget: "text"}
+              - {label: "Eligibility", name: "eligibility", widget: "text"}
+              - {label: "Apply Link", name: "link", widget: "string", required: false}
+              - {label: "Deadline", name: "deadline", widget: "datetime", required: false}
+
+  - name: "news"
+    label: "News & Updates"
+    folder: "_posts"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Date", name: "date", widget: "datetime"}
+      - {label: "Category", name: "category", widget: "select", options: ["à¦¸à¦‚à¦¬à¦¾à¦¦", "à¦˜à§‹à¦·à¦£à¦¾", "à¦•à¦¾à¦°à§à¦¯à¦•à§à¦°à¦®", "à¦œà¦¨à¦¸à¦­à¦¾"]}
+      - {label: "Featured Image", name: "image", widget: "image", required: false}
+      - {label: "Summary", name: "summary", widget: "text"}
+      - {label: "Content", name: "body", widget: "markdown"}
+      - {label: "Location", name: "location", widget: "string", required: false}
+
+  - name: "events"
+    label: "Events & Programs"
+    folder: "_events"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - {label: "Event Title", name: "title", widget: "string"}
+      - {label: "Date & Time", name: "date", widget: "datetime"}
+      - {label: "Location", name: "location", widget: "string"}
+      - {label: "Type", name: "type", widget: "select", options: ["à¦œà¦¨à¦¸à¦­à¦¾", "à¦¸à§à¦¬à¦¾à¦¸à§à¦¥à§à¦¯ à¦•à§à¦¯à¦¾à¦®à§à¦ª", "à¦¶à¦¿à¦•à§à¦·à¦¾ à¦¸à¦¹à¦¾à¦¯à¦¼à¦¤à¦¾", "à¦¤à§à¦°à¦¾à¦£ à¦¬à¦¿à¦¤à¦°à¦£", "à¦…à¦¨à§à¦¯à¦¾à¦¨à§à¦¯"]}
+      - {label: "Description", name: "description", widget: "text"}
+      - {label: "Expected Attendees", name: "attendees", widget: "number", required: false}
+      - {label: "Contact Person", name: "contact", widget: "string", required: false}
+      - {label: "Phone", name: "phone", widget: "string", required: false}
+      - {label: "Status", name: "status", widget: "select", options: ["à¦†à¦¸à¦¨à§à¦¨", "à¦šà¦²à¦®à¦¾à¦¨", "à¦¸à¦®à§à¦ªà¦¨à§à¦¨"], default: "à¦†à¦¸à¦¨à§à¦¨"}
+
+  - name: "gallery"
+    label: "Photo Gallery"
+    folder: "_gallery"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - {label: "Album Title", name: "title", widget: "string"}
+      - {label: "Date", name: "date", widget: "datetime"}
+      - {label: "Event Type", name: "event_type", widget: "string"}
+      - {label: "Location", name: "location", widget: "string"}
+      - {label: "Description", name: "description", widget: "text", required: false}
+      - label: "Photos"
+        name: "photos"
+        widget: "list"
+        fields:
+          - {label: "Image", name: "image", widget: "image"}
+          - {label: "Caption", name: "caption", widget: "string", required: false}
+
+  - name: "testimonials"
+    label: "Testimonials"
+    files:
+      - label: "Public Feedback"
+        name: "feedback"
+        file: "_data/testimonials.yml"
+        fields:
+          - label: "Testimonials"
+            name: "testimonials"
+            widget: "list"
+            fields:
+              - {label: "Name", name: "name", widget: "string"}
+              - {label: "Location/Union", name: "location", widget: "string"}
+              - {label: "Message", name: "message", widget: "text"}
+              - {label: "Photo", name: "photo", widget: "image", required: false}
+              - {label: "Date", name: "date", widget: "datetime"}
+              - {label: "Status", name: "status", widget: "select", options: ["à¦…à¦¨à§à¦®à§‹à¦¦à¦¿à¦¤", "à¦ªà¦°à§à¦¯à¦¾à¦²à§‹à¦šà¦¨à¦¾à¦§à§€à¦¨"], default: "à¦ªà¦°à§à¦¯à¦¾à¦²à§‹à¦šà¦¨à¦¾à¦§à§€à¦¨"}
+
+  - name: "area_info"
+    label: "Area Information"
+    files:
+      - label: "Union Information"
+        name: "unions"
+        file: "_data/area_info.yml"
+        fields:
+          - {label: "Total Population", name: "total_population", widget: "string", default: "à§¨.à§« à¦²à¦•à§à¦·"}
+          - {label: "Total Area", name: "total_area", widget: "string", default: "à§¨à§«à§¦ à¦¬à¦°à§à¦—à¦•à¦¿à¦®à¦¿"}
+          - {label: "Total Unions", name: "total_unions", widget: "string", default: "à§«à¦Ÿà¦¿"}
+          - {label: "Main Crops", name: "main_crops", widget: "string", default: "à¦§à¦¾à¦¨, à¦—à¦®, à¦†à¦–"}
+          
+          - label: "Unions"
+            name: "unions"
+            widget: "list"
+            fields:
+              - {label: "Union Name", name: "name", widget: "string"}
+              - {label: "Population", name: "population", widget: "string"}
+              - {label: "Main Problems", name: "problems", widget: "list", field: {label: "Problem", name: "problem", widget: "string"}}
+              - {label: "Development Projects", name: "projects", widget: "list", field: {label: "Project", name: "project", widget: "string"}}
+              - {label: "Local Representative", name: "representative", widget: "string", required: false}
+
+  - name: "contact_messages"
+    label: "Contact Messages"
+    folder: "_messages"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - {label: "Name", name: "name", widget: "string"}
+      - {label: "Email", name: "email", widget: "string"}
+      - {label: "Phone", name: "phone", widget: "string", required: false}
+      - {label: "Subject", name: "subject", widget: "string"}
+      - {label: "Message", name: "message", widget: "text"}
+      - {label: "Date Received", name: "date", widget: "datetime"}
+      - {label: "Location", name: "location", widget: "string", required: false}
+      - {label: "Category", name: "category", widget: "select", options: ["à¦…à¦­à¦¿à¦¯à§‹à¦—", "à¦ªà¦°à¦¾à¦®à¦°à§à¦¶", "à¦¸à¦¹à¦¾à¦¯à¦¼à¦¤à¦¾à¦° à¦…à¦¨à§à¦°à§‹à¦§", "à¦¤à¦¥à§à¦¯", "à¦…à¦¨à§à¦¯à¦¾à¦¨à§à¦¯"]}
+      - {label: "Status", name: "status", widget: "select", options: ["à¦¨à¦¤à§à¦¨", "à¦ªà¦°à§à¦¯à¦¾à¦²à§‹à¦šà¦¨à¦¾à¦§à§€à¦¨", "à¦‰à¦¤à§à¦¤à¦° à¦¦à§‡à¦“à¦¯à¦¼à¦¾", "à¦¸à¦®à¦¾à¦§à¦¾à¦¨ à¦¹à¦¯à¦¼à§‡à¦›à§‡"], default: "à¦¨à¦¤à§à¦¨"}
+      - {label: "Reply", name: "reply", widget: "text", required: false}
+      - {label: "Reply Date", name: "reply_date", widget: "datetime", required: false}
