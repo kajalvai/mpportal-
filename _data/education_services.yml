@@ -1,0 +1,12 @@
+institutions:
+  - name: "নওগাঁ সরকারি কলেজ"
+    type: "কলেজ"
+    address: "নওগাঁ শহর"
+    contact: "০১৭xxxxxxxx"
+
+scholarships:
+  - title: "মেধা বৃত্তি"
+    description: "প্রতি বছর মেধাবী শিক্ষার্থীদের বৃত্তি প্রদান"
+    eligibility: "SSC পরীক্ষায় GPA-5 প্রাপ্ত"
+    link: ""
+    deadline: ""
