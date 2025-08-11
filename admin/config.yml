@@ -1,40 +1,70 @@
 backend:
   name: git-gateway
-  branch: main # Branch to update (optional; defaults to master)
+  branch: main        # যদি আপনার ব্রাঞ্চ অন্যকিছু হয়ে থাকে (master) সেটা পরিবর্তন করবেন
 
-# These lines should *not* be indented
-media_folder: "assets/images" # Media files will be stored in the repo under static/images/uploads
-public_folder: "/assets/images" # The src attribute for uploaded media will begin with /images/uploads
+media_folder: "assets/images/uploads"   # repo-তে ছবি থাকবে
+public_folder: "/assets/images/uploads" # ওয়েব থেকে দেখা পাবলিক path
+
+site_url: "https://lucent-chebakia-c415fc.netlify.app" # আপনার Netlify সাইটের URL
 
 collections:
-  - name: "profile"
-    label: "Profile Information"
+  - name: "pages"
+    label: "Pages"
     files:
-      - label: "Personal Info"
-        name: "personal"
-        file: "_data/profile.yml"
+      - label: "Home"
+        name: "home"
+        file: "content/pages/home.md"
         fields:
-          - {label: "Name", name: "name", widget: "string", default: "à¦à§à¦¯à¦¾à¦¡à¦­à§‹à¦•à§‡à¦Ÿ à¦†.à¦¸.à¦® à¦¸à¦¾à¦¯à¦¼à§‡à¦®"}
-          - {label: "Title", name: "title", widget: "string", default: "à¦¨à¦“à¦—à¦¾à¦ à¦¸à¦¦à¦°-à§« à¦¨à¦‚ à¦†à¦¸à¦¨à§‡à¦° à¦¸à¦®à§à¦­à¦¾à¦¬à§à¦¯ à¦ªà§à¦°à¦¾à¦°à§à¦¥à§€"}
-          - {label: "Profile Photo", name: "photo", widget: "image", required: false}
-          - {label: "About Me", name: "about", widget: "text"}
-          - {label: "Vision", name: "vision", widget: "text"}
-          - {label: "Phone", name: "phone", widget: "string", required: false}
-          - {label: "Email", name: "email", widget: "string", required: false}
-          - {label: "Facebook", name: "facebook", widget: "string", required: false}
+          - {label: "Title", name: "title", widget: "string"}
+          - {label: "Hero Text", name: "hero", widget: "text"}
+          - {label: "Body", name: "body", widget: "markdown"}
+      - label: "About"
+        name: "about"
+        file: "content/pages/about.md"
+        fields:
+          - {label: "Title", name: "title", widget: "string"}
+          - {label: "Body", name: "body", widget: "markdown"}
 
-  - name: "promises"
-    label: "Promises & Commitments"
-    files:
-      - label: "All Promises"
-        name: "commitments"
-        file: "_data/promises.yml"
-        fields:
-          - label: "Promises"
-            name: "promises"
-            widget: "list"
-            fields:
-              - {label: "Category", name: "category", widget: "select", options: ["à¦¶à¦¿à¦•à§à¦·à¦¾", "à¦¸à§à¦¬à¦¾à¦¸à§à¦¥à§à¦¯", "à¦•à¦°à§à¦®à¦¸à¦‚à¦¸à§à¦¥à¦¾à¦¨", "à¦…à¦¬à¦•à¦¾à¦ à¦¾à¦®à§‹", "à¦…à¦¨à§à¦¯à¦¾à¦¨à§à¦¯"]}
+  - name: "posts"
+    label: "News / Posts"
+    folder: "content/posts"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Date", name: "date", widget: "datetime"}
+      - {label: "Summary", name: "summary", widget: "text"}
+      - {label: "Featured Image", name: "image", widget: "image"}
+      - {label: "Body", name: "body", widget: "markdown"}
+
+  - name: "services"
+    label: "Services"
+    folder: "content/services"
+    create: true
+    fields:
+      - {label: "Service Title", name: "title", widget: "string"}
+      - {label: "Category", name: "category", widget: "string"}
+      - {label: "Image", name: "image", widget: "image"}
+      - {label: "Description", name: "description", widget: "markdown"}
+
+  - name: "gallery"
+    label: "Photo Gallery"
+    folder: "content/gallery"
+    create: true
+    fields:
+      - {label: "Image", name: "image", widget: "image"}
+      - {label: "Caption", name: "caption", widget: "string"}
+
+  - name: "messages"
+    label: "Public Messages (manual)"
+    folder: "content/messages"
+    create: true
+    fields:
+      - {label: "Name", name: "name", widget: "string"}
+      - {label: "Email", name: "email", widget: "string"}
+      - {label: "Subject", name: "subject", widget: "string"}
+      - {label: "Message", name: "message", widget: "text"}
+      - {label: "Date", name: "date", widget: "datetime"}              - {label: "Category", name: "category", widget: "select", options: ["à¦¶à¦¿à¦•à§à¦·à¦¾", "à¦¸à§à¦¬à¦¾à¦¸à§à¦¥à§à¦¯", "à¦•à¦°à§à¦®à¦¸à¦‚à¦¸à§à¦¥à¦¾à¦¨", "à¦…à¦¬à¦•à¦¾à¦ à¦¾à¦®à§‹", "à¦…à¦¨à§à¦¯à¦¾à¦¨à§à¦¯"]}
               - {label: "Title", name: "title", widget: "string"}
               - {label: "Description", name: "description", widget: "text"}
               - {label: "Status", name: "status", widget: "select", options: ["à¦ªà¦°à¦¿à¦•à¦²à§à¦ªà¦¨à¦¾à¦§à§€à¦¨", "à¦¬à¦¾à¦¸à§à¦¤à¦¬à¦¾à¦¯à¦¼à¦¨à¦¾à¦§à§€à¦¨", "à¦¸à¦®à§à¦ªà¦¨à§à¦¨"], default: "à¦ªà¦°à¦¿à¦•à¦²à§à¦ªà¦¨à¦¾à¦§à§€à¦¨"}
