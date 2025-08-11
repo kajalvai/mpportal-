@@ -191,17 +191,17 @@ collections:
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     fields:
       - {label:   "Name",   name:   "name",   widget:   "string"}
-      - {label: "Email", name: "email", widget: "string"}
-      - {label: "Phone", name: "phone", widget: "string", required: false}
-      - {label: "Subject", name: "subject", widget: "string"}
-      - {label: "Message", name: "message", widget: "text"}
-      - {label: "Date Received", name: "date", widget: "datetime"}
-      - {label: "Location", name: "location", widget: "string", required: false}
-      - {label: "Category", name: "category", widget: "select", options: ["à¦…à¦­à¦¿à¦¯à§‹à¦—", "à¦ªà¦°à¦¾à¦®à¦°à§à¦¶", "à¦¸à¦¹à¦¾à¦¯à¦¼à¦¤à¦¾à¦° à¦…à¦¨à§à¦°à§‹à¦§", "à¦¤à¦¥à§à¦¯", "à¦…à¦¨à§à¦¯à¦¾à¦¨à§à¦¯"]}
-      - {label: "Status", name: "status", widget: "select", options: ["à¦¨à¦¤à§à¦¨", "à¦ªà¦°à§à¦¯à¦¾à¦²à§‹à¦šà¦¨à¦¾à¦§à§€à¦¨", "à¦‰à¦¤à§à¦¤à¦° à¦¦à§‡à¦“à¦¯à¦¼à¦¾", "à¦¸à¦®à¦¾à¦§à¦¾à¦¨ à¦¹à¦¯à¦¼à§‡à¦›à§‡"], default: "à¦¨à¦¤à§à¦¨"}
-      - {label: "Reply", name: "reply", widget: "text", required: false}
-      - {label: "Reply Date", name: "reply_date", widget: "datetime", required: false}      - { label: "Featured Image", name: "image", widget: "image" }
-      - { label: "Body", name: "body", widget: "markdown" }
+      - {label:   "Email",   name:   "email",   widget:   "string"}
+      - {label:   "Phone",   name:   "phone",   widget:   "string",   required:   false}
+      - {label:   "Subject",   name:   "subject",   widget:   "string"}
+      - {label:   "Message",   name:   "message",   widget:   "text"}
+      - {label:   "Date Received",   name:   "date",   widget:   "datetime"}
+      - {label:   "Location",   name:   "location",   widget:   "string",   required:   false}
+      - {label:   "Category",   name:   "category",   widget:   "select",   options:   ["à¦…à¦­à¦¿à¦¯à§‹à¦—", "à¦ªà¦°à¦¾à¦®à¦°à§à¦¶", "à¦¸à¦¹à¦¾à¦¯à¦¼à¦¤à¦¾à¦° à¦…à¦¨à§à¦°à§‹à¦§", "à¦¤à¦¥à§à¦¯", "à¦…à¦¨à§à¦¯à¦¾à¦¨à§à¦¯"]}
+      - {label:   "Status",   name:   "status",   widget:   "select",   options:   ["à¦¨à¦¤à§à¦¨", "à¦ªà¦°à§à¦¯à¦¾à¦²à§‹à¦šà¦¨à¦¾à¦§à§€à¦¨", "à¦‰à¦¤à§à¦¤à¦° à¦¦à§‡à¦“à¦¯à¦¼à¦¾", "à¦¸à¦®à¦¾à¦§à¦¾à¦¨ à¦¹à¦¯à¦¼à§‡à¦›à§‡"], default: "à¦¨à¦¤à§à¦¨"}
+      - {label:   "Reply",   name:   "reply",   widget:   "text",   required:   false}
+      - {label:   "Reply Date",   name:   "reply_date",   widget:   "datetime",   required:   false}   -   {   label:   "Featured Image",   name:   "image",   widget:   "image"   }
+      - { label:   "Body",   name:   "body",   widget:   "markdown"   }
 
   - name: "services"
     label: "Services"
