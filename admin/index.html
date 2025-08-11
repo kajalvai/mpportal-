@@ -1,99 +1,29 @@
-backend:
-  name: git-gateway
-  branch: main # Branch to update (optional; defaults to master)
-
-# These lines should *not* be indented
-media_folder: "assets/images" # Media files will be stored in the repo under static/images/uploads
-public_folder: "/assets/images" # The src attribute for uploaded media will begin with /images/uploads
-
-collections:
-  - name: "profile"
-    label: "Profile Information"
-    files:
-      - label: "Personal Info"
-        name: "personal"
-        file: "_data/profile.yml"
-        fields:
-          - {label: "Name", name: "name", widget: "string", default: "à¦à§à¦¯à¦¾à¦¡à¦­à§‹à¦•à§‡à¦Ÿ à¦†.à¦¸.à¦® à¦¸à¦¾à¦¯à¦¼à§‡à¦®"}
-          - {label: "Title", name: "title", widget: "string", default: "à¦¨à¦“à¦—à¦¾à¦ à¦¸à¦¦à¦°-à§« à¦¨à¦‚ à¦†à¦¸à¦¨à§‡à¦° à¦¸à¦®à§à¦­à¦¾à¦¬à§à¦¯ à¦ªà§à¦°à¦¾à¦°à§à¦¥à§€"}
-          - {label: "Profile Photo", name: "photo", widget: "image", required: false}
-          - {label: "About Me", name: "about", widget: "text"}
-          - {label: "Vision", name: "vision", widget: "text"}
-          - {label: "Phone", name: "phone", widget: "string", required: false}
-          - {label: "Email", name: "email", widget: "string", required: false}
-          - {label: "Facebook", name: "facebook", widget: "string", required: false}
-
-  - name: "promises"
-    label: "Promises & Commitments"
-    files:
-      - label: "All Promises"
-        name: "commitments"
-        file: "_data/promises.yml"
-        fields:
-          - label: "Promises"
-            name: "promises"
-            widget: "list"
-            fields:
-              - {label: "Category", name: "category", widget: "select", options: ["à¦¶à¦¿à¦•à§à¦·à¦¾", "à¦¸à§à¦¬à¦¾à¦¸à§à¦¥à§à¦¯", "à¦•à¦°à§à¦®à¦¸à¦‚à¦¸à§à¦¥à¦¾à¦¨", "à¦…à¦¬à¦•à¦¾à¦ à¦¾à¦®à§‹", "à¦…à¦¨à§à¦¯à¦¾à¦¨à§à¦¯"]}
-              - {label: "Title", name: "title", widget: "string"}
-              - {label: "Description", name: "description", widget: "text"}
-              - {label: "Status", name: "status", widget: "select", options: ["à¦ªà¦°à¦¿à¦•à¦²à§à¦ªà¦¨à¦¾à¦§à§€à¦¨", "à¦¬à¦¾à¦¸à§à¦¤à¦¬à¦¾à¦¯à¦¼à¦¨à¦¾à¦§à§€à¦¨", "à¦¸à¦®à§à¦ªà¦¨à§à¦¨"], default: "à¦ªà¦°à¦¿à¦•à¦²à§à¦ªà¦¨à¦¾à¦§à§€à¦¨"}
-              - {label: "Priority", name: "priority", widget: "select", options: ["à¦‰à¦šà§à¦š", "à¦®à¦¾à¦§à§à¦¯à¦®", "à¦¨à¦¿à¦®à§à¦¨"], default: "à¦®à¦¾à¦§à§à¦¯à¦®"}
-
-  - name: "services"
-    label: "Services & Information"
-    files:
-      - label: "Emergency Services"
-        name: "emergency"
-        file: "_data/emergency_services.yml"
-        fields:
-          - label: "Hospitals"
-            name: "hospitals"
-            widget: "list"
-            fields:
-              - {label: "Name", name: "name", widget: "string"}
-              - {label: "Address", name: "address", widget: "string"}
-              - {label: "Phone", name: "phone", widget: "string"}
-              - {label: "Type", name: "type", widget: "select", options: ["à¦¸à¦°à¦•à¦¾à¦°à¦¿", "à¦¬à§‡à¦¸à¦°à¦•à¦¾à¦°à¦¿", "à¦•à§à¦²à¦¿à¦¨à¦¿à¦•"]}
-          
-          - label: "Police Stations"
-            name: "police"
-            widget: "list"
-            fields:
-              - {label: "Name", name: "name", widget: "string"}
-              - {label: "Address", name: "address", widget: "string"}
-              - {label: "Phone", name: "phone", widget: "string"}
-              - {label: "Area", name: "area", widget: "string"}
-          
-          - label: "Fire Service"
-            name: "fire_service"
-            widget: "list"
-            fields:
-              - {label: "Location", name: "location", widget: "string"}
-              - {label: "Phone", name: "phone", widget: "string"}
-              - {label: "Address", name: "address", widget: "string"}
-
-      - label: "Educational Services"
-        name: "education"
-        file: "_data/education_services.yml"
-        fields:
-          - label: "Schools & Colleges"
-            name: "institutions"
-            widget: "list"
-            fields:
-              - {label: "Name", name: "name", widget: "string"}
-              - {label: "Type", name: "type", widget: "select", options: ["à¦ªà§à¦°à¦¾à¦¥à¦®à¦¿à¦• à¦¬à¦¿à¦¦à§à¦¯à¦¾à¦²à¦¯à¦¼", "à¦®à¦¾à¦§à§à¦¯à¦®à¦¿à¦• à¦¬à¦¿à¦¦à§à¦¯à¦¾à¦²à¦¯à¦¼", "à¦•à¦²à§‡à¦œ", "à¦®à¦¾à¦¦à§à¦°à¦¾à¦¸à¦¾"]}
-              - {label: "Address", name: "address", widget: "string"}
-              - {label: "Contact", name: "contact", widget: "string", required: false}
-          
-          - label: "Scholarships"
-            name: "scholarships"
-            widget: "list"
-            fields:
-              - {label: "Title", name: "title", widget: "string"}
-              - {label: "Description", name: "description", widget: "text"}
-              - {label: "Eligibility", name: "eligibility", widget: "text"}
-              - {label: "Apply Link", name: "link", widget: "string", required: false}
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin Panel - MP Portal</title>
+  <!-- Include the script that enables Netlify Identity on this page. -->
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+</head>
+<body>
+  <!-- Include the script that builds the page and powers Netlify CMS -->
+  <script src="https://unpkg.com/netlify-cms@^2.0.0/dist/netlify-cms.js"></script>
+  
+  <script>
+    if (window.netlifyIdentity) {
+      window.netlifyIdentity.on("init", user => {
+        if (!user) {
+          window.netlifyIdentity.on("login", () => {
+            document.location.href = "/admin/";
+          });
+        }
+      });
+    }
+  </script>
+</body>
+</html>              - {label: "Apply Link", name: "link", widget: "string", required: false}
               - {label: "Deadline", name: "deadline", widget: "datetime", required: false}
 
   - name: "news"
